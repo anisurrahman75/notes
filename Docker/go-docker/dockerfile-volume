@@ -1,0 +1,13 @@
+FROM golang:latest
+LABEL maintainer="Anisur Rahman <sunny.cse7575@gmail.com>"
+WORKDIR /app
+ARG LOG_DIR=/app/logs
+RUN mkdir -p ${LOG_DIR} // creating directory inside container
+
+COPY . .
+RUN go mod download
+RUN go build -o main .
+EXPOSE 8080
+#you will see all file from host directory into this container directory
+VOLUME [${LOG_DIR}]
+CMD ["./main"]
