@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cmd-pod
+spec:
+  containers:
+  - name: cmd-container
+    image: ubuntu:latest
+    command: ["sh", "-c"]
+    args:
+    - |
+      echo "Command 1"
+      echo "Command 2"
+      echo "Command 3"
